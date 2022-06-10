@@ -1,0 +1,17 @@
+@import "../../styles/mixins";
+
+.Inputs {
+  &__input {
+    display: block;
+    margin: 10px 0 30px 0;
+    width: 320px;
+    height: 30px;
+    padding: 3px;
+    border: 1px solid #d0cfcf;
+    border-radius: 4px;
+
+    @include onTablet {
+      width: 380px;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 40px;
+}
+
+.App {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__title {
+    margin-bottom: 30px;
+    color: rgb(11, 65, 126);
+  }
+}
