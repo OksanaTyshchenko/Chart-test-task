@@ -1,26 +1,26 @@
-import React, { ChangeEvent, useState } from 'react';
-import { ChartData, SetState } from '../../types';
-import './Inputs.scss';
-
+import React, { ChangeEvent, useState } from "react";
+import { ChartData, SetState } from "../../types";
+import "./Inputs.scss";
 
 type Props = {
-  setCharData: SetState<ChartData>,
-}
+  setCharData: SetState<ChartData>;
+};
 
 export const Inputs: React.FC<Props> = ({ setCharData }) => {
-  const [xQuery, setXQuery] = useState('January, February, March, April, May');
-  const [yQuery, setYQuery] = useState('1, 2, 3, 4, 5');
+  const [xQuery, setXQuery] = useState("January, February, March, April, May");
+  const [yQuery, setYQuery] = useState("1, 2, 3, 4, 5");
 
-  const handleChange = (setValue: SetState<string>) => (event: ChangeEvent<HTMLInputElement>) => {
-    const { value } = event.target;
+  const handleChange =
+    (setValue: SetState<string>) => (event: ChangeEvent<HTMLInputElement>) => {
+      const { value } = event.target;
 
-    setValue(value);
-  };
+      setValue(value);
+    };
 
   const handleChangeLabels = () => {
     setCharData((state) => ({
-      labels: xQuery.split(','),
-      datasets: state.datasets
+      labels: xQuery.split(","),
+      datasets: state.datasets,
     }));
   };
 
@@ -30,8 +30,8 @@ export const Inputs: React.FC<Props> = ({ setCharData }) => {
       datasets: [
         {
           ...state.datasets[0],
-          data: yQuery.split(',').map(num => +num),
-        }
+          data: yQuery.split(",").map((num) => +num),
+        },
       ],
     }));
   };
@@ -41,13 +41,13 @@ export const Inputs: React.FC<Props> = ({ setCharData }) => {
 
     handleChangeLabels();
     handleChangeValues();
-  }
+  };
 
   return (
     <form onSubmit={submitForm}>
-     <div className="Inputs__wrapper">
+      <div className="Inputs__wrapper">
         <label className="Inputs__label">
-        X axis labels:
+          X axis labels:
           <input
             type="text"
             placeholder="January, February, March, April, May"
@@ -59,7 +59,7 @@ export const Inputs: React.FC<Props> = ({ setCharData }) => {
         </label>
 
         <label className="Inputs__label">
-        Y axis labels:
+          Y axis labels:
           <input
             type="text"
             placeholder="1, 2, 3, 4, 5"
@@ -71,7 +71,7 @@ export const Inputs: React.FC<Props> = ({ setCharData }) => {
         </label>
 
         <button type="submit"></button>
-     </div>
+      </div>
     </form>
   );
-}
+};
